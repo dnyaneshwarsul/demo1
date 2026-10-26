@@ -1,0 +1,410 @@
+{% load static %}
+{% include "web/navbar.html" %}
+
+<style>
+
+    /* ================= HERO ================= */
+
+        .contact-hero {
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(15, 23, 42, 0.78),
+                    rgba(15, 23, 42, 0.78)
+                ),
+                url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contact-hero h1 {
+            color: #fbbf24;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .contact-hero p {
+            color: #f1f5f9;
+            font-size: 17px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .contact-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            height: 100%;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            transition: transform .3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: #fde68a;
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #fef3c7;
+            color: #d97706;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .form-box {
+            background: white;
+            padding: 32px;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .submit-btn {
+            background: #d97706;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background .3s ease;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: #b45309;
+            color: white;
+        }
+
+    </style>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="contact-hero">
+        <div class="container">
+            <h1>
+                <i class="bi bi-telephone-fill me-2"></i>
+                संपर्क व ऑनलाइन बुकिंग
+            </h1>
+            <p>
+                श्री सालसिद्ध बाबा संस्थान, संधान | श्री सालसिद्ध बाबा मंदिर
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ================= CONTACT INFO ================= -->
+
+    <section class="py-5">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill fw-semibold mb-2">संपर्क तपशील</span>
+                <h2>आमच्याशी संपर्क साधा</h2>
+                <p>संस्थानाशी संबंधित माहिती, पूजा, आरती, कीर्तन आणि महाप्रसाद बुकिंगसाठी संपर्क करा.</p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- ADDRESS -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h5>संस्थान पत्ता (Address)</h5>
+                        <p>
+                            <strong>श्री सालसिद्ध बाबा संस्थान</strong><br>
+                            मु. पो. संधान (मिडसांगवी), ता. पाथर्डी, जि. अहिल्यानगर<br>
+                            <small class="text-warning fw-semibold">अध्यक्ष: ह. भ. प. हनुमंत महाराज शास्त्री</small>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PHONE -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h5>संपर्क मोबाईल नंबर</h5>
+                        <p>
+                            <a href="tel:+919822398998" class="fw-bold fs-5 text-warning text-decoration-none">
+                                +91 98223 98998
+                            </a>
+                            <br>
+                            <small class="text-muted">संस्थान कार्यालय व बुकिंग संपर्क</small>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <h5>ईमेल आयडी (Email ID)</h5>
+                        <p>
+                            <a href="mailto:salshiddhababa@gmail.com" class="fw-bold text-dark fs-6 text-decoration-none">
+                                salshiddhababa@gmail.com
+                            </a>
+                            <br>
+                            <small class="text-muted">संस्थान ईमेल संपर्कासाठी</small>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT FORM ================= -->
+
+    <section class="pb-5">
+
+        <div class="container">
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-lg-8">
+
+                    <div class="form-box">
+
+                        <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                            <div>
+                                <h3 class="fw-bold text-dark mb-1">
+                                    <i class="bi bi-calendar-check-fill text-warning me-2"></i>ऑनलाइन सेवा व बुकिंग फॉर्म
+                                </h3>
+                                <p class="text-secondary small mb-0">खालील पर्यायांमधून तुम्हाला हवी असणारी सेवा निवडा.</p>
+                            </div>
+                        </div>
+
+                        <!-- Selector Buttons / Pills -->
+                        <div class="nav nav-pills nav-justified mb-4 p-1 bg-light rounded-3 border" id="bookingTab" role="tablist">
+                            <button class="nav-link active fw-bold py-2 rounded-2" id="aarti-tab" type="button" onclick="switchFormType('aarti')">
+                                🪔 महाआरती यजमान
+                            </button>
+                            <button class="nav-link fw-bold py-2 rounded-2" id="kirtan-tab" type="button" onclick="switchFormType('kirtan')">
+                                🎤 कीर्तन / प्रवचन सेवा
+                            </button>
+                            <button class="nav-link fw-bold py-2 rounded-2" id="general-tab" type="button" onclick="switchFormType('general')">
+                                ✉️ सामान्य संदेश
+                            </button>
+                        </div>
+
+
+                        <form id="contactForm">
+
+                            <!-- Hidden field to keep track of active service -->
+                            <input type="hidden" id="service_type" name="service_type" value="aarti">
+
+                            <div class="row g-3">
+
+                                <!-- COMMON FIELD: NAME -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        आपले पूर्ण नाव <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="उदा. रामदास शामराव पाटील" required>
+                                </div>
+
+                                <!-- COMMON FIELD: PHONE -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        मोबाईल नंबर <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="tel" class="form-control" placeholder="१० अंकी मोबाईल नंबर" pattern="[0-9]{10}" required>
+                                </div>
+
+                                <!-- COMMON FIELD: VILLAGE / ADDRESS -->
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">
+                                        पत्ता / गाव <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="उदा. मु. पो. संधान, ता. पाथर्डी" required>
+                                </div>
+
+
+                                <!-- ================= AARTI BOOKING SPECIFIC FIELDS ================= -->
+                                <div id="aartiFields" class="col-12 p-3 bg-warning bg-opacity-10 rounded-3 border border-warning">
+                                    <h6 class="fw-bold text-dark mb-3"><i class="bi bi-star-fill text-warning me-2"></i>रविवार महाआरती यजमान माहिती</h6>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">आरती यजमान नाव / ग्रूप <span class="text-danger">*</span></label>
+                                            <input type="text" id="aarti_yajman_name" class="form-control" placeholder="उदा. z.p. Classmate group / पाटील कुटुंब">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">आरतीसाठी इच्छित रविवार दिनांक <span class="text-danger">*</span></label>
+                                            <input type="date" id="aarti_date" class="form-control">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label fw-semibold">महाप्रसाद अन्नदान इच्छा</label>
+                                            <select class="form-select" id="aarti_prasadam">
+                                                <option value="पूर्ण महाप्रसाद अन्नदान">पूर्ण महाप्रसाद अन्नदान सेवा</option>
+                                                <option value="आरती प्रसाद वितरण">आरती प्रसाद वितरण सेवा</option>
+                                                <option value="इतर स्वेच्छा योगदान">इतर स्वेच्छा योगदान</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- ================= KIRTAN BOOKING SPECIFIC FIELDS ================= -->
+                                <div id="kirtanFields" class="col-12 p-3 bg-danger bg-opacity-10 rounded-3 border border-danger d-none">
+                                    <h6 class="fw-bold text-danger mb-3"><i class="bi bi-mic-fill me-2"></i>ह.भ.प. हनुमंत महाराज शास्त्री कीर्तन / प्रवचन बुकिंग</h6>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">आयोजक मंडळ / सप्ताहाचे नाव <span class="text-danger">*</span></label>
+                                            <input type="text" id="kirtan_saptah_name" class="form-control" placeholder="उदा. अखंड हरिनाम सप्ताह कमिटी">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">कीर्तन / प्रवचन इच्छित तारीख <span class="text-danger">*</span></label>
+                                            <input type="date" id="kirtan_date" class="form-control">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">कार्यक्रम प्रकार</label>
+                                            <select class="form-select" id="kirtan_type">
+                                                <option value="हरिनाम सप्ताह कीर्तन">अखंड हरिनाम सप्ताह कीर्तन</option>
+                                                <option value="पुण्यतिथी उत्सव प्रवचन">पुण्यतिथी उत्सव प्रवचन</option>
+                                                <option value="वार्षिक यात्रा कीर्तन">वार्षिक यात्रा कीर्तन सोहळा</option>
+                                                <option value="विशेष धार्मिक कीर्तन">विशेष धार्मिक कीर्तन</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">कीर्तन वेळ</label>
+                                            <select class="form-select" id="kirtan_time">
+                                                <option value="सायंकाळी ५ ते ७">सायंकाळी ५:०० ते ७:०० वा.</option>
+                                                <option value="रात्री ९ ते ११">रात्री ९:०० ते ११:०० वा.</option>
+                                                <option value="दुपारी २ ते ४">दुपारी २:०० ते ४:०० वा.</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label fw-semibold">कीर्तन स्थळ / संपूर्ण पत्ता <span class="text-danger">*</span></label>
+                                            <input type="text" id="kirtan_venue" class="form-control" placeholder="उदा. विठ्ठल रुक्मिणी मंदिर, मु. पो. ...">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- ================= GENERAL ENQUIRY FIELDS ================= -->
+                                <div id="generalFields" class="col-12 d-none">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="form-label fw-semibold">विषय (Subject)</label>
+                                            <select class="form-select" id="general_subject">
+                                                <option value="सामान्य चौकशी">सामान्य चौकशी</option>
+                                                <option value="दर्शन माहिती">दर्शन वेळ माहिती</option>
+                                                <option value="पूजा सेवा">पूजा व अन्नदान माहिती</option>
+                                                <option value="इतर">इतर प्रश्न</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- COMMON MESSAGE FIELD -->
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">विशेष टीप / संदेश (Message)</label>
+                                    <textarea class="form-control" rows="3" placeholder="आपला संदेश किंवा अतिरिक्त माहिती येथे लिहा..."></textarea>
+                                </div>
+
+
+                                <!-- SUBMIT BUTTON -->
+                                <div class="col-12">
+                                    <button type="submit" class="submit-btn w-100 py-3 fw-bold fs-6">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span id="submitBtnText">महाआरती यजमान बुकिंग सबमिट करा</span>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+        function switchFormType(type) {
+            document.getElementById('aarti-tab').classList.remove('active', 'bg-warning', 'text-dark');
+            document.getElementById('kirtan-tab').classList.remove('active', 'bg-danger', 'text-white');
+            document.getElementById('general-tab').classList.remove('active', 'bg-secondary', 'text-white');
+
+            document.getElementById('aartiFields').classList.add('d-none');
+            document.getElementById('kirtanFields').classList.add('d-none');
+            document.getElementById('generalFields').classList.add('d-none');
+
+            document.getElementById('service_type').value = type;
+
+            if (type === 'aarti') {
+                document.getElementById('aarti-tab').classList.add('active', 'bg-warning', 'text-dark');
+                document.getElementById('aartiFields').classList.remove('d-none');
+                document.getElementById('submitBtnText').innerText = "महाआरती यजमान बुकिंग सबमिट करा";
+            } else if (type === 'kirtan') {
+                document.getElementById('kirtan-tab').classList.add('active', 'bg-danger', 'text-white');
+                document.getElementById('kirtanFields').classList.remove('d-none');
+                document.getElementById('submitBtnText').innerText = "कीर्तन / प्रवचन बुकिंग सबमिट करा";
+            } else {
+                document.getElementById('general-tab').classList.add('active', 'bg-secondary', 'text-white');
+                document.getElementById('generalFields').classList.remove('d-none');
+                document.getElementById('submitBtnText').innerText = "संदेश पाठवा";
+            }
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const serviceType = document.getElementById('service_type').value;
+            let msg = "धन्यवाद! तुमचे ";
+            if (serviceType === 'aarti') {
+                msg += "महाआरती यजमान बुकिंग ";
+            } else if (serviceType === 'kirtan') {
+                msg += "ह.भ.प. हनुमंत महाराज शास्त्री कीर्तन / प्रवचन सेवा बुकिंग ";
+            } else {
+                msg += "संदेश ";
+            }
+            msg += "यशस्वीरीत्या नोंदवले गेले आहे. संस्थानाकडून आपल्याशी लवकरच संपर्क साधला जाईल.";
+            
+            alert(msg);
+            this.reset();
+            switchFormType('aarti');
+        });
+    </script>
+
+{% include "web/footer.html" %}

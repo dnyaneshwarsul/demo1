@@ -1,0 +1,346 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>श्री सालसिद्ध बाबा मंदिर, संधान</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8fafc;
+            color: #334155;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: #ffffff;
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .navbar-brand {
+            color: #0f172a !important;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* Navbar Logo photo styling */
+        .navbar-logo {
+            width: 44px;
+            height: 44px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #d97706;
+            box-shadow: 0 2px 8px rgba(217, 119, 6, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-brand-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .nav-link {
+            color: #334155 !important;
+            font-weight: 500;
+            margin-left: 14px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #d97706 !important;
+        }
+
+        .donate-btn {
+            background: #d97706;
+            color: #ffffff !important;
+            border-radius: 25px;
+            padding: 8px 22px !important;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .donate-btn:hover {
+            background: #b45309;
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.72)),
+                url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 750px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .hero-content h1 span {
+            color: #fbbf24;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-top: 20px;
+            color: #f1f5f9;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .btn-main {
+            background: #d97706;
+            color: white !important;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            margin-right: 10px;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            background: #b45309;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #ffffff;
+            color: white !important;
+            padding: 10px 26px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0f172a !important;
+            transform: translateY(-2px);
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        /* ================= INFO CARDS ================= */
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            height: 100%;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-color: #fde68a;
+        }
+
+        .info-card i {
+            font-size: 38px;
+            color: #d97706;
+            margin-bottom: 18px;
+        }
+
+        .info-card h4 {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-content h2 {
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            line-height: 1.9;
+            color: #475569;
+        }
+
+        /* ================= EVENT CARDS ================= */
+
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            height: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 991px) {
+            .nav-link {
+                margin-left: 0 !important;
+                padding: 10px 0 !important;
+                border-bottom: 1px solid #f8fafc;
+            }
+            .donate-btn {
+                margin-top: 12px;
+                text-align: center;
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-content p {
+                font-size: 15px;
+            }
+            .about-img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+            <!-- Logo photo option -->
+            <img src="{% static 'images/logo.jpg' %}" 
+                 alt="Mandir Logo" 
+                 class="navbar-logo"
+                 onerror="this.onerror=null; this.src='/static/images/logo.jpg';">
+
+            <span class="navbar-brand-text">श्री सालसिद्ध बाबा संस्थान, संधान</span>
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none p-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">मुख्य पृष्ठ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about/">संस्थानाविषयी</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/darshan/">दर्शन व पूजा</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/event/">यात्रा व उत्सव</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/gallery/">गॅलरी</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact/">संपर्क</a>
+                </li>
+
+                <li class="nav-item ms-lg-2">
+                    <a class="nav-link donate-btn text-white" href="/contact/">
+                        <i class="fa-solid fa-hands-praying me-1"></i>
+                        अन्नदान सेवा व कार्यक्रम सेवा
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,338 @@
+{% load static %}
+{% include "web/navbar.html" %}
+
+<style>
+    /* ================= PAGE HERO ================= */
+    .page-hero {
+        height: 330px;
+        background:
+            linear-gradient(
+                rgba(15, 23, 42, 0.78),
+                rgba(15, 23, 42, 0.78)
+            ),
+            url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+    .page-hero h1 {
+        font-size: 44px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    .page-hero p {
+        font-size: 18px;
+        color: #f1f5f9;
+        margin-top: 10px;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+        color: #0f172a;
+        font-weight: 700;
+    }
+
+    .section-title p {
+        color: #64748b;
+    }
+
+    .about-img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .about-content h2 {
+        color: #0f172a;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .about-content p {
+        color: #475569;
+        line-height: 1.9;
+        margin-bottom: 15px;
+    }
+
+    .info-card {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        text-align: center;
+        height: 100%;
+        border: 1px solid #f1f5f9;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        transition: 0.3s;
+    }
+
+    .info-card:hover {
+        transform: translateY(-8px);
+        border-color: #fde68a;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .info-card i {
+        font-size: 38px;
+        color: #d97706;
+        margin-bottom: 18px;
+    }
+
+    .info-card h4 {
+        color: #0f172a;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .info-card p {
+        color: #64748b;
+        line-height: 1.7;
+    }
+</style>
+
+<!-- ================= HERO ================= -->
+
+<section class="page-hero">
+
+    <div>
+
+        <h1>श्री सालसिद्ध बाबा संस्थान, संधान</h1>
+
+        <p>
+            🙏 मुख्य मार्गदर्शक: ह. भ. प. हनुमंत महाराज शास्त्री 🙏
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT SANSTHAN ================= -->
+
+<section class="section bg-white">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80"
+                    class="about-img"
+                    alt="Sansthan Building">
+
+            </div>
+
+            <div class="col-lg-6 about-content">
+
+                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill fw-semibold mb-2">पवित्र तीर्थक्षेत्र</span>
+
+                <h2>श्री सालसिद्ध बाबा संस्थान, संधान</h2>
+
+                <p>
+                    श्री सालसिद्ध बाबा संस्थान (संधान) हे भक्तांसाठी श्रद्धा, भक्ती आणि आध्यात्मिक शांतीचे पवित्र तीर्थक्षेत्र आहे. श्री सालसिद्ध बाबांच्या पावन स्पर्शाने पुनीत झालेल्या या भूमीमध्ये दररोज हजारो भाविक दर्शनासाठी येतात.
+                </p>
+
+                <p>
+                    संस्थानात दररोज काकडा आरती, ग्रंथराज ज्ञानेश्वरी पारायण, महाआरती, हरिपाठ, कीर्तन आणि महाप्रसाद सेवेचे निरंतर आयोजन केले जाते.
+                </p>
+
+                <p>
+                    श्री सालसिद्ध बाबांच्या अगाध कृपेने आणि <strong>ह. भ. प. हनुमंत महाराज शास्त्री</strong> यांच्या अध्यक्षतेखाली व मार्गदर्शनाखाली संस्थानाचा संपूर्ण कारभार समाजोपयोगी व धर्मोपयोगी पद्धतीने चालविला जातो.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAHARAJ SECTION ================= -->
+
+<section class="section" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5 text-center">
+                <div class="p-4 bg-white rounded-4 shadow-sm border border-light">
+                    <img src="{% static 'images/hanumant_maharaj.png' %}" 
+                         alt="ह. भ. प. हनुमंत महाराज शास्त्री" 
+                         style="width:220px; height:220px; object-fit: cover; object-position: top center;" 
+                         class="rounded-circle border border-3 border-warning shadow-sm mb-3">
+                    <h3 class="fw-bold text-dark mb-1 fs-4">ह. भ. प. हनुमंत महाराज शास्त्री</h3>
+                    <p class="text-warning fw-semibold mb-0">संस्थान अध्यक्ष / मुख्य मार्गदर्शक</p>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+
+                <div class="section-title text-start mb-3">
+                    <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill fw-semibold">संस्थान मार्गदर्शक</span>
+                    <h2 class="mt-2">ह. भ. प. हनुमंत महाराज शास्त्री</h2>
+                </div>
+
+                <p class="fs-5 text-dark fw-medium">
+                    श्री सालसिद्ध बाबा संस्थान, संधान चा संपूर्ण कारभार व आध्यात्मिक कार्य ह. भ. प. हनुमंत महाराज शास्त्री यांच्या मार्गदर्शनाखाली अविरत सुरू आहे.
+                </p>
+
+                <p class="text-secondary leading-relaxed">
+                    महाराजजींच्या प्रेरणेने आणि नेतृत्वाखाली संस्थानात भक्तांसाठी अखंड अन्नदान, धार्मिक शिक्षण, कीर्तन-प्रवचन आणि सामाजिक बांधिलकी जपली जाते. सालसिद्ध बाबांच्या कृपेने भक्तांचे कल्याण व्हावे हाच संस्थानचा मूलमंत्र आहे.
+                </p>
+
+                <div class="d-flex gap-3 mt-4">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-warning fs-5"></i>
+                        <span class="fw-semibold text-dark">आध्यात्मिक मार्गदर्शन</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-warning fs-5"></i>
+                        <span class="fw-semibold text-dark">अन्नदान व सामाजिक सेवा</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OBJECTIVES / VALUES ================= -->
+
+<section class="section bg-white">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>संस्थान ध्येय व उद्दिष्टे</span>
+            <h2>संस्थानाची मुख्य कार्ये व वैशिष्ट्ये</h2>
+            <p>श्री सालसिद्ध बाबा संस्थानातर्फे राबवले जाणारे उपक्रम</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-hands-praying"></i>
+
+                    <h4>अध्यात्मिक परंपरा</h4>
+
+                    <p>
+                        दररोज काकडा आरती, हरिपाठ, कीर्तन व प्रवचनाच्या माध्यमातून भक्तांमध्ये भक्ती व संस्कार रुजवले जातात.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-bowl-rice"></i>
+
+                    <h4>अन्नदान महाप्रसाद</h4>
+
+                    <p>
+                        दर रविवारी महाआरतीनंतर आणि सप्ताहात दररोज सर्व उपस्थित भाविकांना महाप्रसाद दिला जातो.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-people-group"></i>
+
+                    <h4>समाजप्रबोधन व उपक्रम</h4>
+
+                    <p>
+                        वार्षिक यात्रा सोहळा, अखंड हरिनाम सप्ताह आणि विविध सामाजिक-आरोग्य शिबिरांचे मोफत आयोजन केले जाते.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HISTORY & TRADITION ================= -->
+
+<section class="section" style="background: #f8fafc; border-top: 1px solid #e2e8f0;">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill fw-semibold mb-2">इतिहास व परंपरा</span>
+
+                <h2 class="fw-bold text-dark mb-3">श्री सालसिद्ध बाबा मंदिराची परंपरा</h2>
+
+                <p class="text-secondary leading-relaxed mb-3">
+                    भक्त श्रद्धेने सालसिद्ध बाबांच्या दर्शनासाठी येतात. बाबांच्या कृपेने भाविकांच्या सर्व मनोकामना पूर्ण होतात अशी भक्तांची गाढ श्रद्धा आहे.
+                </p>
+
+                <p class="text-secondary leading-relaxed mb-3">
+                    सांस्कृतिक वारसा, वारकरी परंपरा आणि अखंड हरिनाम जपाचे हे स्थान प्रतीक आहे. संस्थानात येणाऱ्या प्रत्येक भक्ताला शांती, समाधान आणि आध्यात्मिक उर्जा प्राप्त होते.
+                </p>
+
+            </div>
+
+            <div class="col-lg-5 text-center">
+
+                <div class="p-4 bg-white rounded-4 shadow-sm border border-light text-center">
+
+                    <div class="display-4 text-warning fw-bold mb-2">🚩</div>
+
+                    <h4 class="fw-bold text-dark mb-2">श्री सालसिद्ध बाबा संस्थान</h4>
+
+                    <p class="text-muted small mb-0">मु. पो. संधान (मिडसांगवी), ता. पाथर्डी, जि. अहिल्यानगर</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% include "web/footer.html" %}

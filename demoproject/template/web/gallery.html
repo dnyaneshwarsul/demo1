@@ -1,0 +1,567 @@
+{% load static %}
+{% include "web/navbar.html" %}
+
+<style>
+    /* ================= HERO ================= */
+    .page-hero {
+        min-height: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background:
+            linear-gradient(
+                rgba(15, 23, 42, 0.82),
+                rgba(15, 23, 42, 0.82)
+            ),
+            url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .page-hero h1 {
+        color: #fbbf24;
+        font-size: 44px;
+        font-weight: 700;
+    }
+
+    .page-hero p {
+        color: #f1f5f9;
+        font-size: 17px;
+        max-width: 650px;
+        margin: 10px auto 0;
+    }
+
+    .filter-buttons {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .filter-btn {
+        border: 1px solid #cbd5e1;
+        background: white;
+        color: #0f172a;
+        padding: 8px 20px;
+        margin: 4px;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: .3s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+        background: #d97706;
+        color: white;
+        border-color: #d97706;
+        box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    }
+
+    .gallery-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        background: white;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .gallery-card img {
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-card:hover img {
+        transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px;
+        color: white;
+        background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+        transform: translateY(100%);
+        transition: transform 0.35s ease;
+    }
+
+    .gallery-card:hover .gallery-overlay {
+        transform: translateY(0);
+    }
+
+    .gallery-overlay h5 {
+        margin: 0;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 17px;
+    }
+
+    .gallery-overlay p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #fbbf24;
+    }
+
+    .zoom-icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: rgba(217, 119, 6, 0.92);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-card:hover .zoom-icon {
+        opacity: 1;
+    }
+
+    .video-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .video-thumbnail {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .video-thumbnail img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    .video-card:hover .video-thumbnail img {
+        transform: scale(1.05);
+    }
+
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(217, 119, 6, 0.95);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .video-thumbnail:hover .play-btn {
+        transform: translate(-50%, -50%) scale(1.15);
+        background: #b45309;
+    }
+
+    .video-badge {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(15, 23, 42, 0.85);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+</style>
+
+<!-- ================= HERO ================= -->
+
+<section class="page-hero">
+    <div class="container">
+        <h1>
+            <i class="fa-solid fa-photo-film me-2"></i>
+            छायाचित्र व व्हिडिओ गॅलरी
+        </h1>
+        <p>
+            श्री सालसिद्ध बाबा संस्थान, संधान मधील भक्तिमय सोहळे, महाआरती, अखंड हरिनाम सप्ताह आणि भव्य यात्रा महोत्सवाचे विलोभनीय क्षणचित्रे व व्हिडिओ.
+        </p>
+    </div>
+</section>
+
+
+<!-- ================= PHOTO GALLERY ================= -->
+
+<section class="py-5 bg-white border-bottom border-light">
+    <div class="container">
+
+        <div class="section-title">
+            <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill fw-semibold mb-2">भक्तिमय क्षण</span>
+            <h2 class="mt-1">📷 फोटो गॅलरी (Photo Gallery)</h2>
+            <p>संस्थानातील विविध धार्मिक व सांस्कृतिक कार्यक्रमांचे फोटो</p>
+        </div>
+
+        <!-- FILTER BUTTONS -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterGallery('all', this)">
+                सर्व फोटो (All)
+            </button>
+            <button class="filter-btn" onclick="filterGallery('maharaj', this)">
+                ह.भ.प. हनुमंत महाराज शास्त्री
+            </button>
+            <button class="filter-btn" onclick="filterGallery('aarti', this)">
+                रविवार महाआरती
+            </button>
+            <button class="filter-btn" onclick="filterGallery('yatra', this)">
+                वार्षिक यात्रा महोत्सव
+            </button>
+            <button class="filter-btn" onclick="filterGallery('temple', this)">
+                मंदिर व परिसर
+            </button>
+            <button class="filter-btn" onclick="filterGallery('saptah', this)">
+                अखंड हरिनाम सप्ताह
+            </button>
+        </div>
+
+
+        <!-- GALLERY GRID -->
+        <div class="row g-4">
+
+            <!-- Photo 1: Maharaj Shastri -->
+            <div class="col-lg-4 col-md-6 gallery-item maharaj">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="{% static 'images/hanumant_maharaj.png' %}" alt="ह. भ. प. हनुमंत महाराज शास्त्री">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>ह. भ. प. हनुमंत महाराज शास्त्री</h5>
+                        <p>संस्थान अध्यक्ष व मुख्य मार्गदर्शक</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 2: Sunday Aarti Poster -->
+            <div class="col-lg-4 col-md-6 gallery-item aarti">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="{% static 'images/aarti_banner.jpg' %}" alt="रविवार महाआरती व महाप्रसाद">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>रविवार विशेष महाआरती व महाप्रसाद</h5>
+                        <p>यजमान: z.p. Classmate group 19 & 20 मिडसांगवी</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 3: Yatra Poster -->
+            <div class="col-lg-4 col-md-6 gallery-item yatra">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="{% static 'images/yatra_banner.jpg' %}" alt="श्री सालसिद्धबाबा देवस्थान यात्रा">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>श्री सालसिद्धबाबा देवस्थान यात्रा पत्रिका</h5>
+                        <p>दि. ११, १२ व १३ एप्रिल २०२६ (मिडसांगवी)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 4: Temple Darshan -->
+            <div class="col-lg-4 col-md-6 gallery-item temple">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="मंदिर परिसर">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>श्री सालसिद्ध बाबा मंदिर दर्शन</h5>
+                        <p>पवित्र मंदिर परिसर व मुख्य प्रवेशद्वार</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 5: Harinam Saptah Kirtan -->
+            <div class="col-lg-4 col-md-6 gallery-item saptah">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=900&q=80" alt="हरिनाम सप्ताह कीर्तन">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>अखंड हरिनाम सप्ताह कीर्तन सोहळा</h5>
+                        <p>भाविकांची अलोट गर्दी व भजन-कीर्तन</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 6: Yatra Chhabina -->
+            <div class="col-lg-4 col-md-6 gallery-item yatra">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=900&q=80" alt="छबीना मिरवणूक">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>छबीना मिरवणूक व शोभेचे फटाके</h5>
+                        <p>वार्षिक यात्रेतील मुख्य आकर्षण</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 7: Abhishek Seva -->
+            <div class="col-lg-4 col-md-6 gallery-item temple">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=80" alt="महाअभिषेक पूजा">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>श्रींचा महाअभिषेक व कावडी स्नान</h5>
+                        <p>पवित्र जलाभिषेक सोहळा</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 8: Mahaprasad Distribution -->
+            <div class="col-lg-4 col-md-6 gallery-item aarti">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=900&q=80" alt="अन्नदान महाप्रसाद">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>अन्नदान महाप्रसाद सेवा</h5>
+                        <p>आरतीनंतर सर्व भक्तांसाठी महाप्रसाद</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo 9: Kirtan Pakhawaj -->
+            <div class="col-lg-4 col-md-6 gallery-item saptah">
+                <div class="gallery-card" onclick="openImage(this)">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=900&q=80" alt="काकडा आरती व भजन">
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h5>काकडा आरती व हरिपाठ पठण</h5>
+                        <p>दररोज सकाळी ५:०० वाजता काकडा आरती</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= VIDEO GALLERY SECTION ================= -->
+
+<section class="py-5" style="background: #f8fafc;">
+    <div class="container">
+
+        <div class="section-title">
+            <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill fw-semibold mb-2">व्हिडिओ दालन</span>
+            <h2 class="mt-1">🎥 व्हिडिओ गॅलरी (Video Gallery)</h2>
+            <p>संस्थानातील कीर्तन, महाआरती, आणि उत्सव व्हिडिओ पहा</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Video 1 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', 'ह.भ.प. हनुमंत महाराज शास्त्री भावगर्भ कीर्तन सोहळा')">
+                        <img src="{% static 'images/hanumant_maharaj.png' %}" alt="कीर्तन सोहळा" style="object-fit: cover; object-position: top center;">
+                        <div class="play-btn">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <span class="video-badge"><i class="fa-solid fa-clock me-1"></i>४५:०० मि.</span>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-dark mb-1">ह.भ.प. हनुमंत महाराज शास्त्री कीर्तन सोहळा</h5>
+                        <p class="text-secondary small mb-0">श्री सालसिद्ध बाबा संस्थानातील अध्यात्मिक प्रवचन व कीर्तन मार्गदर्शन.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', 'रविवार विशेष महाआरती व महाप्रसाद सोहळा')">
+                        <img src="{% static 'images/aarti_banner.jpg' %}" alt="रविवार महाआरती">
+                        <div class="play-btn">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <span class="video-badge"><i class="fa-solid fa-clock me-1"></i>१५:२० मि.</span>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-dark mb-1">रविवार विशेष महाआरती व महाप्रसाद सोहळा</h5>
+                        <p class="text-secondary small mb-0">सायंकाळी ७:०० वाजता होणारी भव्य महाआरती व भक्तमंडळींचा प्रतिसाद.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', 'श्री सालसिद्धबाबा देवस्थान यात्रा - छबीना मिरवणूक')">
+                        <img src="{% static 'images/yatra_banner.jpg' %}" alt="यात्रा महोत्सव">
+                        <div class="play-btn">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <span class="video-badge"><i class="fa-solid fa-clock me-1"></i>२५:४० मि.</span>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-dark mb-1">श्री सालसिद्धबाबा यात्रा - छबीना व शोभेचे फटाके</h5>
+                        <p class="text-secondary small mb-0">मिडसांगवी येथील वार्षिक यात्रेतील भव्य छबीना मिरवणूक व्हिडिओ.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', 'अखंड हरिनाम सप्ताह - काल्याचे कीर्तन व महाप्रसाद')">
+                        <img src="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=900&q=80" alt="काल्याचे कीर्तन">
+                        <div class="play-btn">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <span class="video-badge"><i class="fa-solid fa-clock me-1"></i>३०:१५ मि.</span>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold text-dark mb-1">अखंड हरिनाम सप्ताह - काल्याचे कीर्तन</h5>
+                        <p class="text-secondary small mb-0">सप्ताहाची सांगता, काला कीर्तन आणि महाप्रसाद वितरण सोहळा.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= PHOTO LIGHTBOX MODAL ================= -->
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 rounded-4 bg-dark">
+            <div class="modal-header border-0 py-2">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-2">
+                <img id="modalImage" src="" alt="Gallery Image" class="img-fluid rounded shadow" style="max-height: 80vh;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= VIDEO PLAYER MODAL ================= -->
+
+<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 rounded-4">
+            <div class="modal-header bg-warning text-dark py-3">
+                <h5 class="modal-title fw-bold" id="videoModalTitle">
+                    <i class="fa-solid fa-play-circle me-2"></i>वीडियो
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="stopVideo()"></button>
+            </div>
+            <div class="modal-body p-0 bg-dark text-center">
+                <div class="ratio ratio-16x9">
+                    <iframe id="videoIframe" src="" title="Video Player" allowfullscreen allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* ================= FILTER ================= */
+    function filterGallery(category, button) {
+        let items = document.querySelectorAll(".gallery-item");
+        let buttons = document.querySelectorAll(".filter-btn");
+
+        buttons.forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        items.forEach(function(item) {
+            if (category === "all") {
+                item.style.display = "block";
+            } else {
+                if (item.classList.contains(category)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+        });
+    }
+
+    /* ================= OPEN PHOTO LIGHTBOX ================= */
+    function openImage(card) {
+        let image = card.querySelector("img");
+        let modalImage = document.getElementById("modalImage");
+        modalImage.src = image.src;
+
+        let modal = new bootstrap.Modal(document.getElementById("imageModal"));
+        modal.show();
+    }
+
+    /* ================= PLAY VIDEO MODAL ================= */
+    function playVideo(videoUrl, title) {
+        document.getElementById("videoModalTitle").innerText = title;
+        document.getElementById("videoIframe").src = videoUrl;
+
+        let videoModal = new bootstrap.Modal(document.getElementById("videoModal"));
+        videoModal.show();
+    }
+
+    function stopVideo() {
+        document.getElementById("videoIframe").src = "";
+    }
+
+    document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+        stopVideo();
+    });
+</script>
+
+{% include "web/footer.html" %}

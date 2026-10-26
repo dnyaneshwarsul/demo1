@@ -1,0 +1,358 @@
+{% load static %}
+{% include "web/navbar.html" %}
+
+<style>
+    /* ================= PAGE HERO ================= */
+    .page-hero {
+        height: 330px;
+        background:
+            linear-gradient(
+                rgba(15, 23, 42, 0.78),
+                rgba(15, 23, 42, 0.78)
+            ),
+            url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+    .page-hero h1 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    .page-hero p {
+        font-size: 18px;
+        color: #f1f5f9;
+        margin-top: 10px;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+        color: #0f172a;
+        font-weight: 700;
+    }
+
+    .section-title p {
+        color: #64748b;
+    }
+
+    /* TIMING CARDS */
+    .timing-card {
+        background: white;
+        padding: 35px 25px;
+        border-radius: 16px;
+        text-align: center;
+        height: 100%;
+        border: 1px solid #f1f5f9;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        transition: .3s;
+    }
+
+    .timing-card:hover {
+        transform: translateY(-8px);
+        border-color: #fde68a;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .timing-icon {
+        width: 75px;
+        height: 75px;
+        background: #fef3c7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+    .timing-icon i {
+        font-size: 32px;
+        color: #d97706;
+    }
+
+    .timing-card h4 {
+        color: #0f172a;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .time {
+        font-size: 20px;
+        font-weight: 600;
+        color: #d97706;
+    }
+</style>
+
+<!-- ================= HERO ================= -->
+
+<section class="page-hero">
+
+    <div>
+
+        <h1>श्री सालसिद्ध बाबा मंदिर दर्शन व आरती वेळ</h1>
+
+        <p>
+            भक्तांसाठी दर्शन, आरती वेळा आणि पूजा वेळापत्रक माहिती
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TIMING CARDS ================= -->
+
+<section class="section bg-white">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>दैनिक वेळापत्रक</span>
+            <h2>श्री सालसिद्ध बाबा मंदिर दर्शन वेळ</h2>
+            <p>मंदिरातील रोजच्या दर्शन आणि आरतीची वेळ खालीलप्रमाणे आहे</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- MORNING -->
+
+            <div class="col-md-4">
+
+                <div class="timing-card">
+
+                    <div class="timing-icon">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+
+                    <h4>सकाळचे दर्शन वेळ</h4>
+
+                    <p class="time">
+                        सकाळी ०६:०० ते १२:००
+                    </p>
+
+                    <p class="text-muted small mt-2">
+                        सकाळच्या प्रसन्न वातावरणात बाबांचे मुखदर्शन व काकडा आरती.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EVENING -->
+
+            <div class="col-md-4">
+
+                <div class="timing-card">
+
+                    <div class="timing-icon">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+
+                    <h4>संध्याकाळचे दर्शन वेळ</h4>
+
+                    <p class="time">
+                        संध्याकाळी ०४:०० ते ०९:००
+                    </p>
+
+                    <p class="text-muted small mt-2">
+                        सायंकाळचा धुपारती, हरिपाठ आणि रात्रीची महाआरती सेवा.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- AARTI -->
+
+            <div class="col-md-4">
+
+                <div class="timing-card">
+
+                    <div class="timing-icon">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+
+                    <h4>रविवार विशेष महाआरती</h4>
+
+                    <p class="time text-danger">
+                        सायंकाळी ०७:०० वाजता
+                    </p>
+
+                    <p class="text-muted small mt-2">
+                        दर रविवारी महाआरती आणि त्यानंतर सर्व भक्तांसाठी महाप्रसाद.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DAILY POOJA ROUTINE TABLE ================= -->
+
+<section class="section" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>नित्य पूजा</span>
+            <h2>मंदिराचे दैनिक नित्य पूजा वेळापत्रक</h2>
+            <p>श्री सालसिद्ध बाबा संस्थानातील रोजच्या विधींची वेळ</p>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10">
+
+                <div class="bg-white p-4 rounded-4 border border-light shadow-sm">
+
+                    <div class="table-responsive">
+
+                        <table class="table table-hover align-middle mb-0">
+
+                            <thead class="bg-warning bg-opacity-10">
+                                <tr class="text-dark fw-bold">
+                                    <th class="py-3 px-3">वेळ (Time)</th>
+                                    <th class="py-3">पूजा / विधी नाव (Ritual)</th>
+                                    <th class="py-3 text-end px-3">तपशील (Details)</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td class="fw-bold text-warning px-3">सकाळी ०५:०० वा.</td>
+                                    <td class="fw-bold text-dark">काकडा आरती व भूपाळी</td>
+                                    <td class="text-end text-muted px-3">सकाळची भूपाळी व काकड आरती सोहळा</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="fw-bold text-warning px-3">सकाळी ०६:०० वा.</td>
+                                    <td class="fw-bold text-dark">महाअभिषेक व मुख्य दर्शन</td>
+                                    <td class="text-end text-muted px-3">श्रींचा मंगल स्नान महाअभिषेक व दर्शन प्रारंभ</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="fw-bold text-warning px-3">दुपारी १२:०० वा.</td>
+                                    <td class="fw-bold text-dark">महानैवेद्य व मध्यान्ह आरती</td>
+                                    <td class="text-end text-muted px-3">श्रींना महानैवेद्य दाखवणे व दुपारची आरती</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="fw-bold text-warning px-3">सायंकाळी ०५:०० वा.</td>
+                                    <td class="fw-bold text-dark">हरिपाठ पठण सोहळा</td>
+                                    <td class="text-end text-muted px-3">भाविकांचे सामूहिक श्री हरिपाठ पठण</td>
+                                </tr>
+
+                                <tr class="table-warning border-start border-4 border-warning">
+                                    <td class="fw-bold text-danger px-3">सायंकाळी ०७:०० वा.</td>
+                                    <td class="fw-bold text-dark">धुपारती व रविवार विशेष महाआरती</td>
+                                    <td class="text-end px-3">
+                                        <span class="badge bg-danger">महाआरतीनंतर महाप्रसाद</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="fw-bold text-warning px-3">रात्री ०९:०० वा.</td>
+                                    <td class="fw-bold text-dark">शेजारती व मंदिर द्वार बंद</td>
+                                    <td class="text-end text-muted px-3">दिवसाची सांगता व रात्रीची शेजारती</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GUIDELINES ================= -->
+
+<section class="section bg-white">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2 rounded-pill fw-semibold mb-2">महत्त्वाच्या सूचना</span>
+
+                <h2 class="fw-bold text-dark mb-3">भक्तांसाठी नियम व सूचना</h2>
+
+                <ul class="list-unstyled text-secondary leading-relaxed fs-6">
+
+                    <li class="mb-3">
+                        <i class="fa-solid fa-circle-check text-warning me-2 fs-5"></i>
+                        मंदिरात प्रवेश करताना पवित्रता व शांतता राखणे आवश्यक आहे.
+                    </li>
+
+                    <li class="mb-3">
+                        <i class="fa-solid fa-circle-check text-warning me-2 fs-5"></i>
+                        मुख्य गाभाऱ्यात मोबाईल फोन वापरणे व फोटो काढण्यास सक्त मनाई आहे.
+                    </li>
+
+                    <li class="mb-3">
+                        <i class="fa-solid fa-circle-check text-warning me-2 fs-5"></i>
+                        दर्शन रांगेत शिस्त पाळून श्रींच्या दर्शनाचा लाभ घ्यावा.
+                    </li>
+
+                    <li class="mb-3">
+                        <i class="fa-solid fa-circle-check text-warning me-2 fs-5"></i>
+                        रविवार महाआरती व महाप्रसाद सेवेचे बुकिंग करण्यासाठी संपर्क साधावा.
+                    </li>
+
+                </ul>
+
+                <a href="/contact/" class="btn btn-main mt-2">
+                    <i class="fa-solid fa-calendar-plus me-2"></i>
+                    पूजा / महाआरती यजमान बुकिंग करा
+                </a>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=1000&q=80"
+                     class="img-fluid rounded-4 shadow"
+                     alt="Mandir Pooja">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% include "web/footer.html" %}

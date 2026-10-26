@@ -1,0 +1,68 @@
+{% load static %}
+{% include "web/navbar.html" %}
+
+<style>
+    .page-hero {
+        height: 300px;
+        background:
+            linear-gradient(
+                rgba(15, 23, 42, 0.78),
+                rgba(15, 23, 42, 0.78)
+            ),
+            url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+
+    .page-hero h1 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #fbbf24;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+</style>
+
+<!-- ================= HERO ================= -->
+
+<section class="page-hero">
+    <div>
+        <h1>श्री सालसिद्ध बाबा संस्थान धार्मिक उत्सव व सोहळे</h1>
+        <p>संस्थानातील वार्षिक यात्रा महोत्सव, अखंड हरिनाम सप्ताह आणि महाआरती माहिती</p>
+    </div>
+</section>
+
+<section class="section bg-white">
+    <div class="container text-center">
+        <h2 class="fw-bold text-dark mb-4">प्रमुख वार्षिक उत्सव</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 border text-start shadow-sm h-100">
+                    <span class="badge bg-warning text-dark mb-2">वार्षिक महोत्सव</span>
+                    <h3 class="fw-bold text-dark">🚩 श्री सालसिद्धबाबा देवस्थान यात्रा</h3>
+                    <p class="text-secondary">दिनांक: ११, १२ व १३ एप्रिल २०२६ (मौजे मिडसांगवी)</p>
+                    <p class="text-dark small">ह. भ. प. निवृत्ती महाराज इंदोरीकर कीर्तन, कावडी स्नान (डॉ. नामदेव महाराज शास्त्री व हनुमंत महाराज शास्त्री), छबीना मिरवणूक आणि कुस्त्यांचा जंगी हंगामा.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 border text-start shadow-sm h-100">
+                    <span class="badge bg-danger text-white mb-2">साप्ताहिक सोहळा</span>
+                    <h3 class="fw-bold text-dark">🪔 रविवार विशेष महाआरती व महाप्रसाद</h3>
+                    <p class="text-danger fw-bold">दर रविवारी सायंकाळी ०७:०० वाजता</p>
+                    <p class="text-dark small">महाआरतीनंतर सर्व उपस्थित भाविकांसाठी अन्नदान महाप्रसाद वितरण सोहळा.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "web/footer.html" %}
